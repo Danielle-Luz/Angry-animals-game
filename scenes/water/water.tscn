@@ -12,11 +12,11 @@ script = ExtResource("1_26vjh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_repeat = 2
-position = Vector2(966, 583)
-scale = Vector2(1.07422, 1.01172)
+position = Vector2(499, 586)
+scale = Vector2(1, 1)
 texture = ExtResource("2_m0478")
 region_enabled = true
-region_rect = Rect2(0, 0, 1800, 128)
+region_rect = Rect2(0, 0, 1400, 128)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(576, 590)
