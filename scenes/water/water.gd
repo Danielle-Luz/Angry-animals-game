@@ -9,4 +9,5 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_body_entered(body: Node2D) -> void:
+	splash_sound.position = body.position
 	splash_sound.play()
