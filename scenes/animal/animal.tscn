@@ -7,6 +7,8 @@
 radius = 64.0078
 
 [node name="Animal" type="RigidBody2D"]
+input_pickable = true
+freeze = true
 script = ExtResource("1_imi4l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
