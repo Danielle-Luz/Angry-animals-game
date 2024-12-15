@@ -81,6 +81,7 @@ func get_impulse() -> Vector2:
 
 func die() -> void:
 	self.queue_free()
+	SignalsAutoload.on_game_ended.emit()
 	
 func set_mouse_start_position() -> void:
 	# sets the mouse start position, if it's the first time moving the bird, then it will be its position
