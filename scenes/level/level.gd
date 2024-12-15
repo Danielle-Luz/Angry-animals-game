@@ -11,4 +11,5 @@ func _ready() -> void:
 func create_animal_on_start_position() -> void:
 	var animal: Animal = _ANIMAL_SCENE.instantiate()
 	animal.position = _animal_start_marker.position
+	animal._animal_start_marker = self._animal_start_marker.position
 	add_child(animal)
