@@ -1,15 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://yomdg4x838w0"]
+[gd_scene load_steps=7 format=3 uid="uid://yomdg4x838w0"]
 
 [ext_resource type="Texture2D" uid="uid://ckig0asxmpm4r" path="res://assets/icon.svg" id="1_3bdqr"]
 [ext_resource type="Script" path="res://scenes/animal/animal.gd" id="1_imi4l"]
 [ext_resource type="Texture2D" uid="uid://dd25bu7lh6dme" path="res://assets/assets/items/arrow.png" id="3_haajp"]
 [ext_resource type="AudioStream" uid="uid://cahevoc3pfqad" path="res://assets/assets/audio/stretch2.ogg" id="4_15fjv"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_svywh"]
+bounce = 0.2
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_w5vm4"]
 radius = 64.0078
 
 [node name="Animal" type="RigidBody2D"]
 input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_svywh")
 freeze = true
 script = ExtResource("1_imi4l")
 
