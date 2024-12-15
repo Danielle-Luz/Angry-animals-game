@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://yomdg4x838w0"]
+[gd_scene load_steps=5 format=3 uid="uid://yomdg4x838w0"]
 
 [ext_resource type="Texture2D" uid="uid://ckig0asxmpm4r" path="res://assets/icon.svg" id="1_3bdqr"]
 [ext_resource type="Script" path="res://scenes/animal/animal.gd" id="1_imi4l"]
+[ext_resource type="Texture2D" uid="uid://dd25bu7lh6dme" path="res://assets/assets/items/arrow.png" id="3_haajp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w5vm4"]
 radius = 64.0078
@@ -24,6 +25,12 @@ shape = SubResource("CircleShape2D_w5vm4")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(19.5, 19.5)
 scale = Vector2(1.95, 1.95)
+
+[node name="Arrow" type="Sprite2D" parent="."]
+position = Vector2(19, 20)
+scale = Vector2(0.174757, 0.196602)
+texture = ExtResource("3_haajp")
+offset = Vector2(180, 0)
 
 [connection signal="mouse_entered" from="." to="." method="on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="on_mouse_exited"]
