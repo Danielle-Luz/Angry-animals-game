@@ -11,6 +11,10 @@ const _MAX_POSITION: Vector2 = Vector2(0, 60)
 const _MIN_POSITION: Vector2 = Vector2(-60, 0)
 
 @onready var _arrow: Sprite2D = $Arrow
+@onready var _arrow_stretch_sound: AudioStreamPlayer2D = $ArrowStretchSound
+
+func _ready() -> void:
+	SignalsAutoload.on_drag_animal.connect(play_arrow_stretch_sound)
 
 func _physics_process(delta: float) -> void:
 	var is_animal_moving: bool = self.linear_velocity != Vector2.ZERO
@@ -22,6 +26,7 @@ func _physics_process(delta: float) -> void:
 		is_animal_moving == false
 	):
 		set_animal_position_by_mouse()
+		SignalsAutoload.on_drag_animal.emit()
 
 	if Input.is_action_just_released("drag") && self._was_mouse_holded:
 		self.freeze = false
@@ -50,8 +55,15 @@ func set_arrow_angle() -> void:
 	var distance_from_mouse = self._animal_start_marker - self.position
 	distance_from_mouse.x = abs(distance_from_mouse.x)
 	var arrow_angle: float = distance_from_mouse.angle()
-	#(self._animal_start_marker - self.position).angle()
 	self._arrow.rotation = arrow_angle
+	
+func play_arrow_stretch_sound() -> void:
+	var is_dragging_animal = self.get_animal_moved_distance() > Vector2.ZERO
+	self._arrow.visible = true
+	
+	if(is_dragging_animal && self._arrow_stretch_sound.playing == false):
+		self._arrow_stretch_sound.position = self.position
+		self._arrow_stretch_sound.play()
 
 func die() -> void:
 	self.queue_free()
