@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://f3i5qt5imx0o"]
+[gd_scene load_steps=6 format=3 uid="uid://f3i5qt5imx0o"]
 
 [ext_resource type="Texture2D" uid="uid://b0qduiwvs1byq" path="res://assets/assets/env/MainBG.png" id="1_u8rmq"]
 [ext_resource type="PackedScene" uid="uid://blnu7wh26g4iv" path="res://scenes/level_button/level_button.tscn" id="2_dr1sw"]
 [ext_resource type="FontFile" uid="uid://ctutr8splci6e" path="res://assets/assets/fonts/LuckiestGuy-Regular.ttf" id="2_fancv"]
+[ext_resource type="AudioStream" uid="uid://mds4gn1dgkjv" path="res://assets/assets/audio/birdsong.wav" id="4_aud5m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_calww"]
 font = ExtResource("2_fancv")
@@ -61,3 +62,7 @@ level = 2
 [node name="LevelButton3" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_dr1sw")]
 layout_mode = 2
 level = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_aud5m")
+autoplay = true
