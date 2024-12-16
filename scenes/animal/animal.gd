@@ -113,8 +113,8 @@ func on_mouse_exited() -> void:
 func on_sleeping_state_changed() -> void:
 	if self.sleeping:
 		call_deferred("die")
-		self._vanish_sound.position = self.position
-		self._vanish_sound.play()
+		var wood: Wood = self.get_colliding_bodies()[0]
+		wood.play_vanish_animation()
 
 func _on_body_entered(body: Node) -> void:
 	if self._wood_knock_sound.playing == false && self._was_wood_knocked == false:
