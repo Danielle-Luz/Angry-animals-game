@@ -11,7 +11,7 @@ func _ready() -> void:
 	self.level_scores = self.get_score_from_file()
 
 func increment_score() -> void:
-	self.current_score += 1
+	self.current_score += 1000
 
 	if(self.current_score >= self.level_scores[current_level_number]):
 		self.level_scores[current_level_number] = self.current_score

@@ -16,7 +16,7 @@ const levels: Dictionary = {
 
 func _ready() -> void:
 	self._level_label.text = str(self.level)
-	self._score_label.text = str(self.score)
+	self._score_label.text = str(ScoreAutoload.level_scores[self._level_label.text])
 
 func on_mouse_entered() -> void:
 	self._animation_player.play("size_up")
