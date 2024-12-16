@@ -23,4 +23,10 @@ position = Vector2(-4, 41)
 [node name="WoodWithCentralSpace" parent="." instance=ExtResource("4_8ylxj")]
 position = Vector2(305, 440)
 
+[node name="WoodWithCentralSpace2" parent="." instance=ExtResource("4_8ylxj")]
+position = Vector2(477, 347)
+
+[node name="WoodWithCentralSpace3" parent="." instance=ExtResource("4_8ylxj")]
+position = Vector2(644, 254)
+
 [connection signal="tree_exited" from="." to="." method="store_score_on_file"]

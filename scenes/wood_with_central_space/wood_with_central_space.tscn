@@ -5,6 +5,21 @@
 [ext_resource type="Texture2D" uid="uid://br2f5y06aifj7" path="res://assets/assets/env/elementWood019.png" id="2_iro6b"]
 [ext_resource type="AudioStream" uid="uid://clxabgkbuf5sg" path="res://assets/assets/audio/vanish.wav" id="4_1cw88"]
 
+[sub_resource type="Animation" id="Animation_ecs65"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.8, 0.8)]
+}
+
 [sub_resource type="Animation" id="Animation_snclj"]
 resource_name = "vanish"
 tracks/0/type = "value"
@@ -32,21 +47,6 @@ tracks/1/keys = {
 "args": [],
 "method": &"vanish"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_ecs65"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.8, 0.8)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jindd"]

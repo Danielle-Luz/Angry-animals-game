@@ -16,4 +16,3 @@ func create_animal_on_start_position() -> void:
 	
 func store_score_on_file() -> void:
 	ScoreAutoload.store_score_on_file()
-	print("armazenou")

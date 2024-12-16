@@ -21,11 +21,16 @@ func store_score_on_file() -> void:
 	
 	if score_file:
 		score_file.store_string(JSON.stringify(self.score))
+		print("score was stored")
 
 func get_score_from_file() -> Dictionary:
 	var score_file: FileAccess = FileAccess.open(self.SCORE_FILE_PATH, FileAccess.READ)
+	print("get - file ", score_file)
 
 	if score_file && score_file.get_length() > 0:
+		print("get - info got from score file: ", score_file.get_as_text())
+		print("get - info from score as json: ", JSON.parse_string(score_file.get_as_text()))
+		
 		var score_as_json = score_file.get_as_text()
 		return JSON.parse_string(score_as_json)
 
