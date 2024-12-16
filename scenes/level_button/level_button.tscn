@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://blnu7wh26g4iv"]
+[gd_scene load_steps=9 format=3 uid="uid://blnu7wh26g4iv"]
 
 [ext_resource type="Texture2D" uid="uid://pba234l3dy7i" path="res://assets/assets/ui/panel_beige.png" id="1_ttli3"]
 [ext_resource type="LabelSettings" uid="uid://dmluoy8slc4dc" path="res://settings/lg_48_white.tres" id="2_t3w8c"]
@@ -10,10 +10,47 @@ font = ExtResource("3_esptc")
 font_size = 24
 shadow_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_1b3l2"]
+resource_name = "size_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.2, 1.2)]
+}
+
+[sub_resource type="Animation" id="Animation_40kb5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mgr6x"]
+_data = {
+"RESET": SubResource("Animation_40kb5"),
+"size_up": SubResource("Animation_1b3l2")
+}
+
 [node name="LevelButton" type="TextureButton"]
 offset_top = -1.0
 offset_right = 100.0
 offset_bottom = 99.0
+pivot_offset = Vector2(50, 50)
 texture_normal = ExtResource("1_ttli3")
 script = ExtResource("2_x062v")
 
@@ -42,3 +79,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "0"
 label_settings = SubResource("LabelSettings_c5ax8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mgr6x")
+}
+
+[connection signal="mouse_entered" from="." to="." method="on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="on_pressed"]

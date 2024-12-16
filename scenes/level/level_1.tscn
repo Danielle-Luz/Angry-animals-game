@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://da0ppg1m4jqes"]
+
+[ext_resource type="PackedScene" uid="uid://wig1byfqhgnb" path="res://scenes/level/level.tscn" id="1_4c675"]
+[ext_resource type="PackedScene" uid="uid://c02bhk07h6otf" path="res://scenes/wood_with_central_space/wood_with_central_space.tscn" id="2_17enm"]
+
+[node name="Level" instance=ExtResource("1_4c675")]
+
+[node name="WoodWithCentralSpace" parent="." index="3" instance=ExtResource("2_17enm")]
+position = Vector2(320, 426)
+
+[node name="WoodWithCentralSpace2" parent="." index="4" instance=ExtResource("2_17enm")]
+position = Vector2(479, 311)
+
+[node name="WoodWithCentralSpace3" parent="." index="5" instance=ExtResource("2_17enm")]
+position = Vector2(636, 218)
