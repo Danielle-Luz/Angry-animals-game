@@ -4,6 +4,7 @@ class_name Animal
 
 var _is_mouse_over: bool = false
 var _was_mouse_holded: bool = false
+var _was_wood_knocked: bool = false
 var _mouse_start_position: Vector2
 var _animal_start_marker: Vector2
 var _arrow_default_scale: float
@@ -15,6 +16,8 @@ const _MAX_ARROW_SCALE: float = 0.435
 
 @onready var _arrow: Sprite2D = $Arrow
 @onready var _arrow_stretch_sound: AudioStreamPlayer2D = $ArrowStretchSound
+@onready var _vanish_sound: AudioStreamPlayer2D = $VanishSound
+@onready var _wood_knock_sound: AudioStreamPlayer2D = $WoodKnockSound
 
 func _ready() -> void:
 	SignalsAutoload.on_drag_animal.connect(self.play_arrow_stretch_sound)
@@ -106,3 +109,14 @@ func on_mouse_entered() -> void:
 
 func on_mouse_exited() -> void:
 	self._is_mouse_over = false
+
+func on_sleeping_state_changed() -> void:
+	if self.sleeping:
+		call_deferred("die")
+		self._vanish_sound.position = self.position
+		self._vanish_sound.play()
+
+func _on_body_entered(body: Node) -> void:
+	if self._wood_knock_sound.playing == false && self._was_wood_knocked == false:
+		self._wood_knock_sound.play()
+		self._was_wood_knocked = true

@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://yomdg4x838w0"]
+[gd_scene load_steps=9 format=3 uid="uid://yomdg4x838w0"]
 
 [ext_resource type="Texture2D" uid="uid://ckig0asxmpm4r" path="res://assets/icon.svg" id="1_3bdqr"]
 [ext_resource type="Script" path="res://scenes/animal/animal.gd" id="1_imi4l"]
 [ext_resource type="Texture2D" uid="uid://dd25bu7lh6dme" path="res://assets/assets/items/arrow.png" id="3_haajp"]
 [ext_resource type="AudioStream" uid="uid://cahevoc3pfqad" path="res://assets/assets/audio/stretch2.ogg" id="4_15fjv"]
+[ext_resource type="AudioStream" uid="uid://clxabgkbuf5sg" path="res://assets/assets/audio/vanish.wav" id="5_54pd2"]
+[ext_resource type="AudioStream" uid="uid://bvyrbtvghjjod" path="res://assets/assets/audio/kick_wood.ogg" id="6_pgqwt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_svywh"]
 bounce = 0.2
@@ -15,6 +17,8 @@ radius = 64.0078
 input_pickable = true
 physics_material_override = SubResource("PhysicsMaterial_svywh")
 freeze = true
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_imi4l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -40,6 +44,14 @@ offset = Vector2(180, 0)
 [node name="ArrowStretchSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_15fjv")
 
+[node name="VanishSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_54pd2")
+
+[node name="WoodKnockSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_pgqwt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="mouse_entered" from="." to="." method="on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="on_mouse_exited"]
+[connection signal="sleeping_state_changed" from="." to="." method="on_sleeping_state_changed"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="die"]
