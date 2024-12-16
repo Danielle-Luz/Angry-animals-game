@@ -86,6 +86,9 @@ func die() -> void:
 	self.queue_free()
 	SignalsAutoload.on_game_ended.emit()
 	
+func increment_tentative() -> void:
+	ScoreAutoload.tentatives += 1
+	
 func set_mouse_start_position() -> void:
 	# sets the mouse start position, if it's the first time moving the bird, then it will be its position
 	# otherwise, if the bird was already moved, it will be its previous position

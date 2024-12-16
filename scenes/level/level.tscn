@@ -22,3 +22,5 @@ position = Vector2(-4, 41)
 
 [node name="WoodWithCentralSpace" parent="." instance=ExtResource("4_8ylxj")]
 position = Vector2(305, 440)
+
+[connection signal="tree_exited" from="." to="." method="store_score_on_file"]

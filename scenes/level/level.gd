@@ -13,3 +13,7 @@ func create_animal_on_start_position() -> void:
 	animal.position = _animal_start_marker.position
 	animal._animal_start_marker = self._animal_start_marker.position
 	add_child(animal)
+	
+func store_score_on_file() -> void:
+	ScoreAutoload.store_score_on_file()
+	print("armazenou")
