@@ -3,35 +3,34 @@ extends Node
 const SCORE_FILE_PATH: String = "user://score.txt"
 
 var current_score: int = 0
-var score: Dictionary = { "highest_score": 0}
+var level_scores: Dictionary = {"1": 0, "2": 0, "3": 0}
 var tentatives: int = 0
+var current_level_number: String
 
 func _ready() -> void:
-	self.score = self.get_score_from_file()
+	self.level_scores = self.get_score_from_file()
 
 func increment_score() -> void:
 	self.current_score += 1
 
-	if(self.current_score >= self.score.highest_score):
-		self.score.highest_score = self.current_score
-	print(self.score)
+	if(self.current_score >= self.level_scores[current_level_number]):
+		self.level_scores[current_level_number] = self.current_score
+
+func reset_numbers() -> void:
+	self.current_score = 0
+	self.tentatives = 0
 
 func store_score_on_file() -> void:
 	var score_file: FileAccess = FileAccess.open(self.SCORE_FILE_PATH, FileAccess.WRITE)
 	
 	if score_file:
-		score_file.store_string(JSON.stringify(self.score))
-		print("score was stored")
+		score_file.store_string(JSON.stringify(self.level_scores))
 
 func get_score_from_file() -> Dictionary:
 	var score_file: FileAccess = FileAccess.open(self.SCORE_FILE_PATH, FileAccess.READ)
-	print("get - file ", score_file)
 
 	if score_file && score_file.get_length() > 0:
-		print("get - info got from score file: ", score_file.get_as_text())
-		print("get - info from score as json: ", JSON.parse_string(score_file.get_as_text()))
-		
 		var score_as_json = score_file.get_as_text()
 		return JSON.parse_string(score_as_json)
 
-	return self.score
+	return self.level_scores

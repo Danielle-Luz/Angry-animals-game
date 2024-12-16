@@ -26,5 +26,9 @@ func on_mouse_exited() -> void:
 
 func on_pressed() -> void:
 	var scene_path: String = levels[self._level_label.text]
+	
+	ScoreAutoload.current_level_number = self._level_label.text
+	ScoreAutoload.reset_numbers()
+	
 	self.loaded_scene = load(scene_path)
 	self.get_tree().change_scene_to_packed(self.loaded_scene)
