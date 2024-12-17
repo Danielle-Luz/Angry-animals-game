@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 SignalsAutoload="*res://autoload/SignalsAutoload.gd"
 ScoreAutoload="*res://autoload/ScoreAutoload.gd"
 
+[global_group]
+
+cup=""
+
 [input]
 
 drag={

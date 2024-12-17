@@ -55,7 +55,7 @@ _data = {
 "vanish": SubResource("Animation_snclj")
 }
 
-[node name="WoodWithCentralSpace" type="StaticBody2D"]
+[node name="WoodWithCentralSpace" type="StaticBody2D" groups=["cup"]]
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_h4c6g")
 
