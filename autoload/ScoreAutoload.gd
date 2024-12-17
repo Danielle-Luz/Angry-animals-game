@@ -10,15 +10,22 @@ var current_level_number: String
 
 func _ready() -> void:
 	self.level_scores = self.get_score_from_file()
-	self.cup_quantity = self.get_tree().get_node_count_in_group("cup")
+	SignalsAutoload.on_hit_all_cups.connect(store_tentatives)
+	SignalsAutoload.on_hit_all_cups.connect(store_score_on_file)
 
 func increment_score() -> void:
-	self.current_score += 1000
-	
-	if(self.current_score >= self.level_scores[current_level_number]):
-		self.level_scores[current_level_number] = self.current_score
-	
+	self.current_score += 1
 	check_hit_cups_quantity()
+
+func increment_tentatives() -> void:
+	self.tentatives += 1
+	
+func store_tentatives() -> void:
+	if(
+		self.tentatives < self.level_scores[current_level_number] ||
+		self.level_scores[current_level_number] == 0
+	):
+		self.level_scores[current_level_number] = self.tentatives
 
 func reset_numbers() -> void:
 	self.current_score = 0
@@ -40,5 +47,8 @@ func get_score_from_file() -> Dictionary:
 	return self.level_scores
 	
 func check_hit_cups_quantity() -> void:
+	print("bateu")
+	print("cup quantity; ", self.cup_quantity)
 	if self.cup_quantity == self.current_score:
 		SignalsAutoload.on_hit_all_cups.emit()
+		print("todos batidos")

@@ -6,7 +6,7 @@
 [node name="Level" instance=ExtResource("1_imjg7")]
 
 [node name="WoodWithCentralSpace" parent="." index="3" instance=ExtResource("2_8bh0p")]
-position = Vector2(467, 147)
+position = Vector2(402, 295)
 
 [node name="WoodWithCentralSpace2" parent="." index="4" instance=ExtResource("2_8bh0p")]
-position = Vector2(885, 357)
+position = Vector2(592, 373)

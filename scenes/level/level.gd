@@ -8,6 +8,7 @@ const _MAIN_SCENE = preload("res://scenes/main/main.tscn")
 func _ready() -> void:
 	create_animal_on_start_position()
 	SignalsAutoload.on_game_ended.connect(create_animal_on_start_position)
+	ScoreAutoload.cup_quantity = self.get_tree().get_nodes_in_group("cup").size()
 	
 func _process(delta: float) -> void:
 	if(Input.is_action_just_pressed("back")):

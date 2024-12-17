@@ -18,5 +18,3 @@ position = Vector2(174, 371)
 [node name="Water" parent="." instance=ExtResource("2_e8ddf")]
 z_index = 1
 position = Vector2(-4, 41)
-
-[connection signal="tree_exited" from="." to="." method="store_score_on_file"]
