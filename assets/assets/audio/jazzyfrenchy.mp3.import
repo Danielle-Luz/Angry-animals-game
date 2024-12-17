@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/jazzyfrenchy.mp3-9a420d651f4548d2e476aa80effd
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

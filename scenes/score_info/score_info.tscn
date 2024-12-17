@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://7vx2wrqp66s"]
+
+[ext_resource type="Script" path="res://scenes/score_info/score_info.gd" id="1_7u1ls"]
+[ext_resource type="FontFile" uid="uid://ctutr8splci6e" path="res://assets/assets/fonts/LuckiestGuy-Regular.ttf" id="1_8bot0"]
+[ext_resource type="LabelSettings" uid="uid://dbejrr2dg5e7x" path="res://scenes/main/lg_72_blue.tres" id="2_rppx6"]
+[ext_resource type="AudioStream" uid="uid://b4c3xb3j1icge" path="res://assets/assets/audio/jazzyfrenchy.mp3" id="4_bgttx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_86nxu"]
+font = ExtResource("1_8bot0")
+font_size = 30
+font_color = Color(0.0467287, 0.112976, 0.218816, 1)
+shadow_color = Color(0.666569, 0.666569, 0.666569, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_so3wb"]
+font = ExtResource("1_8bot0")
+font_size = 48
+font_color = Color(1.73271e-06, 0.471004, 0.709443, 1)
+shadow_color = Color(2.40654e-07, 0.280328, 0.280328, 1)
+
+[node name="ScoreInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_7u1ls")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Score "
+label_settings = SubResource("LabelSettings_86nxu")
+
+[node name="TentativesLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Attempts "
+label_settings = SubResource("LabelSettings_86nxu")
+
+[node name="GameOverContainer" type="VBoxContainer" parent="MarginContainer"]
+visible = false
+z_index = 100
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 0
+
+[node name="LevelCompleteLabel" type="Label" parent="MarginContainer/GameOverContainer"]
+layout_mode = 2
+text = "LEVEL COMPLETE"
+label_settings = ExtResource("2_rppx6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpaceLabel" type="Label" parent="MarginContainer/GameOverContainer"]
+layout_mode = 2
+text = "PRESS SPACE"
+label_settings = SubResource("LabelSettings_so3wb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOverMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_bgttx")

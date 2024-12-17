@@ -16,9 +16,11 @@ func _ready() -> void:
 func increment_score() -> void:
 	self.current_score += 1
 	check_hit_cups_quantity()
+	SignalsAutoload.on_tentative.emit()
 
 func increment_tentatives() -> void:
 	self.tentatives += 1
+	SignalsAutoload.on_tentative.emit()
 	
 func store_tentatives() -> void:
 	if(
@@ -47,8 +49,5 @@ func get_score_from_file() -> Dictionary:
 	return self.level_scores
 	
 func check_hit_cups_quantity() -> void:
-	print("bateu")
-	print("cup quantity; ", self.cup_quantity)
 	if self.cup_quantity == self.current_score:
 		SignalsAutoload.on_hit_all_cups.emit()
-		print("todos batidos")

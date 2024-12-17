@@ -1,15 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://f3i5qt5imx0o"]
+[gd_scene load_steps=5 format=3 uid="uid://f3i5qt5imx0o"]
 
 [ext_resource type="Texture2D" uid="uid://b0qduiwvs1byq" path="res://assets/assets/env/MainBG.png" id="1_u8rmq"]
 [ext_resource type="PackedScene" uid="uid://blnu7wh26g4iv" path="res://scenes/level_button/level_button.tscn" id="2_dr1sw"]
-[ext_resource type="FontFile" uid="uid://ctutr8splci6e" path="res://assets/assets/fonts/LuckiestGuy-Regular.ttf" id="2_fancv"]
+[ext_resource type="LabelSettings" uid="uid://dbejrr2dg5e7x" path="res://scenes/main/lg_72_blue.tres" id="2_yaaku"]
 [ext_resource type="AudioStream" uid="uid://mds4gn1dgkjv" path="res://assets/assets/audio/birdsong.wav" id="4_aud5m"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_calww"]
-font = ExtResource("2_fancv")
-font_size = 72
-font_color = Color(0, 0.692609, 0.692609, 1)
-shadow_color = Color(2.40654e-07, 0.280328, 0.280328, 1)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -43,7 +37,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "Angry animals"
-label_settings = SubResource("LabelSettings_calww")
+label_settings = ExtResource("2_yaaku")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
